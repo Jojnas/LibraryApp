@@ -1,5 +1,8 @@
 <?php
 
+// Abstract Factory - poskytuje rozhranie pre vytvorenie skupiny podobnych alebo suvisiacich objektov
+// bez pomenovania konkretnych tried
+
 namespace abstractFactory\implementation;
 
 use abstractFactory\Cell;
