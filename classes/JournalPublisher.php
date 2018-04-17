@@ -2,7 +2,7 @@
 
 namespace classes;
 
-use abstractClasses\AbstractPublisher;
+use abstractClasses\factory\AbstractPublisher;
 
 class JournalPublisher extends AbstractPublisher {
     protected function createPublication(int $pageCount)

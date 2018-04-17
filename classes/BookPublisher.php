@@ -2,7 +2,7 @@
 
 namespace classes;
 
-use abstractClasses\AbstractPublisher;
+use abstractClasses\factory\AbstractPublisher;
 
 class BookPublisher extends AbstractPublisher {
     protected function createPublication(int $pageCount)

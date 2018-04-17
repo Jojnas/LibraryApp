@@ -1,6 +1,6 @@
 <?php
 
-namespace abstractClasses;
+namespace abstractClasses\factory;
 
 // Factory Method - definuje rozhranie pre vytvaranie objektov, pri com tvorbu instancii prenechava svojim potomkom
 
