@@ -12,6 +12,8 @@ class Book implements Publication
     protected $pageCount;
     protected $pageNumber = 0;
     protected $closed = true;
+    protected $cd = false;
+    protected $symbol = null;
 
     public function __construct(string $category, int $pageCount)
     {
@@ -58,5 +60,28 @@ class Book implements Publication
         }
         return self::DAILY_RATE;
     }
+
+    public function setCd(bool $cd): void
+    {
+        $this->cd = $cd;
+    }
+
+
+    public function hasCd(): bool
+    {
+        return $this->cd;
+    }
+
+    public function setSymbol(string $symbol): void
+    {
+        $this->symbol = $symbol;
+    }
+
+
+    public function getSymbol(): string
+    {
+        return $this->symbol;
+    }
+
 
 }
