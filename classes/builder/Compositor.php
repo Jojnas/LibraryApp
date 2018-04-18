@@ -3,6 +3,7 @@
 // this class is called Director because only this class knows how to build a page
 
 // Builder - oddeluje konstrukciu komplexnych objektov od ich reprezentacie (obsahu)
+// inymi slovami meni sa len obsah, ostatne atributy ostavaju rovnake pre vsetkych
 
 namespace classes\builder;
 
