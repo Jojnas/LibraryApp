@@ -2,6 +2,7 @@
 
 namespace classes;
 
+use classes\prototype\CD;
 use interfaces\Publication;
 
 class Book implements Publication
@@ -14,6 +15,7 @@ class Book implements Publication
     protected $closed = true;
     protected $cd = false;
     protected $symbol = null;
+    protected $cede;
 
     public function __construct(string $category, int $pageCount)
     {
@@ -81,6 +83,24 @@ class Book implements Publication
     public function getSymbol(): string
     {
         return $this->symbol;
+    }
+
+    public function getCede()
+    {
+        return $this->cede;
+    }
+
+    public function setCede(CD $cd): void
+    {
+        $this->cede = $cd;
+    }
+
+    // Prototype : cloning CD object - clone method will be automatically called by PHP interpreter once creating
+    // a copy of an object
+    public function  __clone()
+    {
+        $cd = clone $this->getCede();
+        $this->setCd($cd);
     }
 
 
