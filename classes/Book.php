@@ -23,6 +23,16 @@ class Book implements Publication
         $this->pageCount = $pageCount;
     }
 
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
+
+    public function getPageCount(): int
+    {
+        return $this->pageCount;
+    }
+
     public function open(): void
     {
         $this->closed = false;

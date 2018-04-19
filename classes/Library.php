@@ -2,82 +2,15 @@
 
 namespace classes;
 
-use interfaces\Debugger;
+
+use abstractClasses\AbstractLibrary;
 use interfaces\Publication;
 
-class Library {
-    const DEBUG_MODE = 'log';
-    protected $library = [];
-    protected $rentalActions = [];
-    protected $debugger;
+class Library extends AbstractLibrary {
 
-    public function __construct(Debugger $debugger)
+    public function addToLibrary($id, Publication $publication)
     {
-        $this->debugger = $debugger;
+        $this->storage->insertPublication($id, $publication);
+        $this->debug('New book added to library: ' . $publication->getCategory());
     }
-
-    public function addToLibrary(int $id, Publication $publication): void
-    {
-        $this->library[$id] = $publication;
-        $this->debug('New publication in library: ' . $publication->getCategory());
-    }
-
-    public function rentPublication(Publication $publication, Member $member)
-    {
-        $publicationId = array_search($publication, $this->library);
-        if (false === $publicationId) {
-            throw new UnknownPublicationException();
-        }
-
-        if (!$this->isPublicationAvailable($publication)) {
-            throw new PublicationNotAvailableException();
-        }
-
-        $rentalAction = new RentalAction($publication, $member);
-        $this->rentalActions[] = $rentalAction;
-
-        return $rentalAction;
-    }
-
-    public function returnPublication(Publication $publication): bool
-    {
-        foreach ($this->rentalActions as $rentalAction) {
-            if ($rentalAction->getPublication() !== $publication) {
-                continue;
-            }
-
-            if ($rentalAction->isReturned()) {
-                continue;
-            }
-
-            $rentalAction->markPublicationReturned();
-            return true;
-        }
-
-        return false;
-    }
-
-    public function isPublicationAvailable(Publication $publication): bool
-    {
-        foreach ($this->rentalActions as $rentalAction) {
-            if ($rentalAction->getPublication() !== $publication) {
-                continue;
-            }
-
-            if ($rentalAction->isReturned()) {
-                continue;
-            }
-
-            return false;
-        }
-
-        return true;
-    }
-
-    protected function debug(string $message)
-    {
-        $this->debugger->debug($message);
-    }
-
-
 }
