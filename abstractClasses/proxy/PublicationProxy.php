@@ -1,13 +1,13 @@
 <?php
 
+namespace abstractClasses\proxy;
 
-namespace abstractClasses\decorator;
-
+// PROXY - controlling access to an object using an deputy which is being used instead of original object
 
 use interfaces\Publication;
 
-abstract class PublicationDecorator implements Publication {
-
+class PublicationProxy implements Publication
+{
     protected $publication;
 
     public function __construct(Publication $publication)
@@ -49,6 +49,4 @@ abstract class PublicationDecorator implements Publication {
     {
         return $this->publication->getPageCount();
     }
-
-
 }
