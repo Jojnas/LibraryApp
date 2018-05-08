@@ -3,12 +3,15 @@
 namespace abstractFactory;
 
 abstract class Cell {
-    protected $content = null;
+//    has to be removed because of Flyweight
+//    protected $content = null;
+//
+//    public function __construct($content)
+//    {
+//        $this->content = $content;
+//    }
 
-    public function __construct($content)
-    {
-        $this->content = $content;
-    }
 
-    abstract public function show();
+// adding parameter $data
+    abstract public function show($data);
 }

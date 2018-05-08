@@ -10,23 +10,30 @@ use abstractFactory\implementation\HtmlTable;
 use interfaces\abstractFactory\TableFactory;
 
 class HtmlTableFactory implements TableFactory {
-    public function createCell($content)
+    private $cell = null;
+
+    public function createCell()
     {
-        return new HtmlCell($content);
+        if (null == $this->cell) {
+            $this->cell = new TextCell();
+        }
+        return $this->cell;
     }
 
     public function createHeader()
     {
-        return new HtmlHeader();
+        $header = new TextHeader($this->createCell());
+        return $header;
     }
 
     public function createRow()
     {
-        return new HtmlRow();
+        $row = new TextRow($this->createCell());
+        return $row;
     }
 
     public function createTable()
     {
-        return new HtmlTable();
+        return new TextTable();
     }
 }

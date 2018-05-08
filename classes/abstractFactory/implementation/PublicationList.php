@@ -17,18 +17,16 @@ class PublicationList {
         $table = $this->tableFactory->createTable();
 
         $header = $this->tableFactory->createHeader();
-        $header->addCell($this->tableFactory->createCell('Category'));
-        $header->addCell($this->tableFactory->createCell('Page count'));
+        $header->addCell('Category');
+        $header->addCell('Page count');
 
         $table->setHeader($header);
 
         foreach ($data as $line) {
             $row = $this->tableFactory->createRow();
             foreach ($line as $field) {
-                $cell = $this->tableFactory->createCell($field);
-                $row->addCell($cell);
+                $row->addCell($field);
             }
-            $table->addRow($row);
         }
         $table->show();
     }
