@@ -10,7 +10,7 @@ use interfaces\Publication;
 class SpecialEditionPublisher {
     protected $prototypes = [];
 
-    public function addSpecialEdtion($edition, Publication $publication)
+    public function addSpecialEdition($edition, Publication $publication)
     {
         $this->prototypes[$edition] = $publication;
     }

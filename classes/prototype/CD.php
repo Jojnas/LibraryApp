@@ -5,7 +5,8 @@
 
 namespace classes\prototype;
 
-class CD {
+class CD
+{
     protected $track = 1;
 
     public function getTrack(): int
