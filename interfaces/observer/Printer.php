@@ -10,4 +10,5 @@ interface Printer
     public function printPublication(Publication $publication, $count = 1);
     public function getType();
     public function getPageCounter();
+    public function check();
 }

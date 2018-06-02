@@ -23,7 +23,7 @@ class ObserverInitialCheck implements Observer
         }
 
         if ($observable->getPageCounter() >= $this->checkPageCounter) {
-            printf('Required first control after %d printed pages.\n', $this->checkPageCounter);
+            $observable->check();
             $observable->detach($this);
         }
     }

@@ -26,7 +26,7 @@ class ObserverRegularCheck implements Observer
         }
 
         if ($observable->getPageCounter() >= $this->nextCheck) {
-            printf('Regulary control after %d printed pages.\n', $this->nextCheck);
+            $observable->check();
             $this->nextCheck += $this->interval;
         }
     }
