@@ -2,6 +2,8 @@
 
 namespace classes;
 
+use interfaces\visitor\Visitor;
+
 class Member {
     protected $id;
     protected $name;
@@ -20,5 +22,10 @@ class Member {
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function acceptVisitor(Visitor $visitor)
+    {
+        $visitor->visitMember($this);
     }
 }

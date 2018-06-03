@@ -4,6 +4,7 @@ namespace classes;
 
 use classes\prototype\CD;
 use interfaces\Publication;
+use interfaces\visitor\Visitor;
 
 class Book implements Publication
 {
@@ -111,6 +112,11 @@ class Book implements Publication
     {
         $cd = clone $this->getCede();
         $this->setCd($cd);
+    }
+
+    public function acceptVisitor(Visitor $visitor)
+    {
+        $visitor->visitPublication($this);
     }
 
 

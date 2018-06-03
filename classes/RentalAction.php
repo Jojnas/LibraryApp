@@ -3,6 +3,7 @@
 namespace classes;
 
 use interfaces\Publication;
+use interfaces\visitor\Visitor;
 
 class RentalAction {
     protected $publication;
@@ -57,4 +58,10 @@ class RentalAction {
         return null !== $this->returnDate;
     }
 
+    public function acceptVisitor(Visitor $visitor)
+    {
+        $visitor->visitRentalAction($this);
+        $this->publication->acceptVisitor($visitor);
+        $this->member->acceptVisitor($visitor);
+    }
 }
