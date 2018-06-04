@@ -1,7 +1,8 @@
 <?php
 namespace classes\iterator;
 
-// ITERATOR: iterate over objects without publishing their basic structure
+// ITERATOR: a class will be able to traverse the elements of another class
+// iterate over objects without publishing their basic structure
 // there is a need to implement Iterator interface (for arrays ArrayIterator)
 
 
