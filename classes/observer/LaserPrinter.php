@@ -20,6 +20,11 @@ class LaserPrinter implements Printer, Observable
         $this->type = $type;
     }
 
+    public function check()
+    {
+
+    }
+
     public function turnOn()
     {
         $this->turnedOn = true;
